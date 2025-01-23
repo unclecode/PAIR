@@ -2,7 +2,16 @@
 **Beyond single-shot evaluation: Measuring LLM capabilities through collaborative iteration**
 
 ## Author
-Author of [Crawl4AI](https://github.com/uncledata/crawl4ai), founder of [Kidocode](https://kidocode.com), SE Asia's largest tech & biz school. Leading AI research on synthetic data, AI consultant.
+<div>
+ <p style="display: flex; align-items: center; gap: 5px;">
+   Author of <a href="https://github.com/uncledata/crawl4ai">Crawl4AI</a>
+   <a href="https://github.com/unclecode/crawl4ai/stargazers" style="display: flex; align-items: center;">
+     <img src="https://img.shields.io/github/stars/unclecode/crawl4ai?style=social" alt="GitHub Stars" style="vertical-align: middle;">
+   </a>
+   , an open source library for extracting LLM friendly data, and founder of 
+   <a href="https://kidocode.com">Kidocode</a>, SE Asia's largest tech & biz school. Leading AI research on synthetic data, AI consultant. <strong>But above all these show-offs, I am a coffee aficionado, love Big Bang Theory, and enjoy all Star-* movies. 😃</strong>
+ </p>
+</div>
 
 ## The Problem
 Current LLM evaluation trends often oversimplify model comparison by feeding identical prompts to different models and comparing outputs. This approach ignores critical nuances like inference parameters and tokenization differences, essentially comparing apples to oranges. Moreover, this single-shot evaluation paradigm contradicts how these models excel in practice - through iterative refinement and self-reflection. We need an evaluation framework that's both easily shareable for community engagement and more representative of real-world AI application patterns, where reaching the right answer often involves a dialectic process rather than a single perfect response. The goal of evaluation should focus on a model's ability to self-improve within a feedback loop, where the feedback comes either from the model itself or from another model acting as a judge.
@@ -33,26 +42,38 @@ where n is the number of iterations and λ is a penalty factor for iteration cou
 - Allows for parameter and tokenization differences between models
 
 ### Platform Dynamics
-The PAIR platform introduces two parallel leaderboards that capture both AI and human excellence:
+The PAIR platform features three leaderboards that showcase different aspects of model evaluation:
 
-1. **Model Performance Leaderboard**
-   - Tracks raw performance of model combinations (P,O)
-   - Compares same-model pairs (e.g., GPT4+GPT4) vs cross-model pairs (e.g., Claude+GPT4)
-   - Measures convergence speed and solution quality across standardized tasks
+1. **Self-Reflection Mode (PAIR(A,A))**
+  - Evaluates how models perform in self-reviewing scenarios
+  - Each model serves as both performer and reviewer
+  - Measures a model's capacity for self-improvement
+  - Rankings based on convergence speed and solution quality
+  - Example: PAIR(GPT4,GPT4), PAIR(Claude,Claude), PAIR(Deepseek,Deepseek)
 
-2. **AI Whisperer Leaderboard**
-   - Celebrates human expertise in model orchestration
-   - Ranks participants based on their ability to:
-     - Select optimal model combinations
-     - Fine-tune interaction parameters
-     - Design effective prompting strategies
-   - Showcases the art of AI system design
+2. **Cross-Model Mode (PAIR(A,B))**
+  - Explores all possible model combinations
+  - Identifies optimal performer-reviewer pairings
+  - Reveals which models excel in specific roles
+  - Discovers unexpected synergies between different models
+  - Example: PAIR(Claude,GPT4), PAIR(Deepseek,Claude), PAIR(GPT4,Deepseek)
+
+3. **Community Leaderboard**
+  - Community members submit their optimal configurations:
+    - Model pairs (self or cross-model)
+    - Inference parameters (temperature, top-p, etc.)
+    - System prompts and evaluation strategies
+  - All submissions run through standardized benchmark suite
+  - Rankings showcase best performing configurations
+  - Promotes innovation in model orchestration
+  - Shares insights about effective pairing strategies
 
 ## Project Goals
-1. Develop an open-source evaluation platform
-2. Create a public leaderboard for community contributions
-3. Publish research findings on collaborative LLM evaluation
-4. Establish standardized protocols for pair-wise model evaluation
+1. Build a comprehensive challenge dataset for standardized evaluation
+2. Develop an open-source platform supporting both evaluation modes
+3. Maintain public leaderboards for model performance and community submissions
+4. Publish research findings on optimal pairing strategies and model capabilities
+5. Establish protocols for reproducible pair-wise model evaluation
 
 ## Research Direction
 The research aims to explore:
